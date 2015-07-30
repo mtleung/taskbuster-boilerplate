@@ -3,13 +3,14 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Marco Leung -- Developer -- @mtleung
 
 # THANKS
 
     <name>
 
 # TECHNOLOGY COLOPHON
-
+	Django
     HTML5, CSS3
     jQuery, Modernizr
+    Twitter Bootstrap
