@@ -1,12 +1,9 @@
 import sys
-from unittest import skip
+from django.core.urlresolvers import reverse
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.keys import Keys
-from .server_tools import reset_database
 
-class FunctionalTest(StaticLiveServerTestCase):import sys
+class FunctionalTest(StaticLiveServerTestCase):
 
     @classmethod
     def setUpClass(cls):
@@ -26,11 +23,12 @@ class FunctionalTest(StaticLiveServerTestCase):import sys
             super().tearDownClass()
 
     def setUp(self):
-        if self.against_staging:
-            reset_database(self.server_host)
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(3)
 
     def tearDown(self):
         self.browser.quit()
+
+    def get_full_url(self, namespace):
+        return self.live_server_url + reverse(namespace)
             
